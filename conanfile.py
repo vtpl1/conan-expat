@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class ExpatConan(ConanFile):
     name = "Expat"
-    version = "2.2.2"
+    version = "2.2.1"
     description = "Recipe for Expat library"
     license = "MIT/X Consortium license. Check file COPYING of the library"
     url = "https://github.com/vtpl1/conan-expat"
