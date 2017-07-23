@@ -14,7 +14,7 @@ class ExpatConan(ConanFile):
     exports = ['FindExpat.cmake']
 
     def source(self):
-        self.run("git clone --depth 1 --branch R_2_2_2 https://github.com/libexpat/libexpat")
+        self.run("git clone --depth 1 --branch R_2_2_1 https://github.com/libexpat/libexpat")
         # This small hack might be useful to guarantee proper /MT /MD linkage in MSVC
         # if the packaged project doesn't have variables to set it properly
         tools.replace_in_file("libexpat/expat/CMakeLists.txt", "project(expat)",
@@ -31,7 +31,7 @@ class ExpatConan(ConanFile):
                        "BUILD_shared" : self.options.shared,
                        "BUILD_tests" : "OFF",
                        "BUILD_tools" : "OFF",
-                       "CMAKE_CXX_FLAGS" : "${CMAKE_CXX_FLAGS} -DXML_POOR_ENTROPY"
+                       #"CMAKE_CXX_FLAGS" : "${CMAKE_CXX_FLAGS} -DXML_POOR_ENTROPY"
                      }
 
         cmake.configure(source_dir="../libexpat/expat", build_dir="build", defs=cmake_args)
