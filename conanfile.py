@@ -30,7 +30,8 @@ class ExpatConan(ConanFile):
                        "BUILD_examples" : "OFF",
                        "BUILD_shared" : self.options.shared,
                        "BUILD_tests" : "OFF",
-                       "BUILD_tools" : "OFF"
+                       "BUILD_tools" : "OFF",
+                       "CPPFLAGS" : "-DXML_POOR_ENTROPY"
                      }
 
         cmake.configure(source_dir="../libexpat/expat", build_dir="build", defs=cmake_args)
